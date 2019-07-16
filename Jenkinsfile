@@ -6,9 +6,9 @@ pipeline {
         sh 'hostname'
       }
     }
-    stage('') {
+    stage('error') {
       steps {
-        build 'mvn clean install'
+        sh 'mvn clean install'
       }
     }
   }
