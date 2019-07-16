@@ -20,13 +20,10 @@ pipeline {
         }
       }
     }
-    stage('error') {
+    stage('Test') {
       steps {
         sh 'mvn clean install'
       }
     }
-  }
-  environment {
-    tools = 'maven'
   }
 }
