@@ -2,8 +2,22 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        sh 'hostname'
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'hostname'
+          }
+        }
+        stage('build2') {
+          steps {
+            sh 'echo hello'
+          }
+        }
+        stage('buiild3') {
+          steps {
+            sh 'date'
+          }
+        }
       }
     }
     stage('error') {
@@ -11,5 +25,8 @@ pipeline {
         sh 'mvn clean install'
       }
     }
+  }
+  environment {
+    tools = 'maven'
   }
 }
